@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import IQKeyboardManagerSwift
 
 @main
 struct DemoUIApp: App {
@@ -13,5 +14,14 @@ struct DemoUIApp: App {
         WindowGroup {
             ContentView()
         }
+    }
+}
+
+extension UIApplication {
+    func enableKeyBoardManager(_ isEnable:Bool) {
+        IQKeyboardManager.shared.enable = isEnable
+    }
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
